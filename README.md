@@ -9,3 +9,12 @@
 ### Author: Ibrahim Alhamshari
 
 **Links and Resources: https://github.com/ibrahim-alhamshari/HornedBeast**
+
+- Number and name of feature: lab02 (HornedBeast)
+
+- Estimate of time needed to complete: 3 hours 
+
+- Start time: 2:00 pm 
+- Finish time: 5:21 pm
+
+- Actual time needed to complete: It need about 2 and half hour.
