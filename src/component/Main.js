@@ -15,19 +15,24 @@ voting= () =>{
 
 render() {
   
-  return ( 
-    this.props.Data.map((beast) => {
-      return (
-        <HornedBeasts
-          title={beast.title}
-          image_url={beast.image_url}
-          description={beast.description}
-          // voting={this.voting}
-        />
-      );
-    })
+  return (
+    <div>
+      {
+        this.props.Data.map((beast) => {
+          return (
+            <HornedBeasts
+              title={beast.title}
+              image_url={beast.image_url}
+              description={beast.description}
+            />
+          );
+        })
+      }
+    </div>
   );
+
 }
+
 }
 
 export default Main;

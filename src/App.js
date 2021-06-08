@@ -3,26 +3,30 @@ import Header from './component/Header';
 import Main from './component/Main';
 import Footer from './component/Footer';
 import Data from './component/Data.json';
+import SelectedBeast from './component/SelectedBeast';
 
 class App extends React.Component {
   constructor(props){
     super(props);
-this.state={
-  
-}
+    this.state={
+      SelectedBeast: HornsData,
+    };
   }
 
-  displayModel = (title) ={
-let selectedbeast = Data.filter(item)
+  getImages = (title) => {
+const selectedPiece= Data.filter(element => {
+  if (title===element.title)
+})
   }
+
   render() {
     return (
       <div>
         <Header />
         <Main 
-          hornsData={Data}
+          HornsData={Data}
         />
-
+        <SelectedBeast />
         <Footer />
       </div>
     );
