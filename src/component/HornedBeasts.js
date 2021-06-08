@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Modal from './SelectedBeast';
+
 
 
 class HornedBeasts extends React.Component {
@@ -19,15 +19,17 @@ request = () =>{
     numberOfVote: this.state.numberOfVote +1,
   }); 
 }
-displayModel =() => {
 
+firstClick =() => {
+  this.props.response(this.props.title);
 }
+
 render() {
   return (
     <div>
       <div>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img onClick={this.displayModel} variant="top" src={this.props.image_url} />
+        <Card style={{ width: '18rem' }} onClick={this.firstClick}>
+          <Card.Img onClick={this.request} variant="top" src={this.props.image_url} />
           <Card.Body>
             <Card.Title>{this.props.title}</Card.Title>
             <Card.Text>

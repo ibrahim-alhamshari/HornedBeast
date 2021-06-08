@@ -1,37 +1,34 @@
+/* eslint-disable no-useless-constructor */
 import React from 'react';
 import HornedBeasts from './HornedBeasts';
 
 
 class Main extends React.Component {
 
-  // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
   }
   
-voting= () =>{
-  alert('hello');
-}
-
-render() {
+  render() {
   
-  return (
-    <div>
-      {
-        this.props.Data.map((beast) => {
-          return (
-            <HornedBeasts
-              title={beast.title}
-              image_url={beast.image_url}
-              description={beast.description}
-            />
-          );
-        })
-      }
-    </div>
-  );
+    return (
+      <div>
+        {
+          this.props.HornsData.map((element) => {
+            return (
+              <HornedBeasts
+                title={element.title}
+                image_url={element.image_url}
+                description={element.description}
+                response={this.props.response2}
+              />
+            );
+          })
+        }
+      </div>
+    );
 
-}
+  }
 
 }
 
