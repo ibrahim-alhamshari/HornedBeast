@@ -22,7 +22,7 @@ class MyModal extends React.Component{
             <Modal.Title>{this.props.selectedBeast2.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <img src={this.props.selectedBeast2.image_url} width='60%'/>
+            <img src={this.props.selectedBeast2.image_url} width='80%'/>
             <p>{this.props.selectedBeast2.description}</p>
           </Modal.Body>
           <Modal.Footer>

@@ -27,24 +27,19 @@ firstClick =() => {
 render() {
   return (
     <div>
-      <div>
-        <Card style={{ width: '18rem' }} onClick={this.firstClick}>
-          <Card.Img onClick={this.request} variant="top" src={this.props.image_url} />
-          <Card.Body>
-            <Card.Title>{this.props.title}</Card.Title>
-            <Card.Text>
+      <Card style={{ width: '18rem' }} onClick={this.firstClick}>
+        <Card.Img onClick={this.request} variant="top" src={this.props.image_url} />
+        <Card.Body>
+          <Card.Title>{this.props.title}</Card.Title>
+            
+          <Card.Text>
           ❤️ =  
-              {this.state.numberOfVote}
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
-      </div>
-      <div>
-        <h2>{this.props.title}</h2>
-        <p>{this.props.description}</p>
-        <img src={this.props.image_url} className="" alt="" />
-      </div>
+            {this.state.numberOfVote}
+          </Card.Text>
+          <p>{this.props.description}</p>
+          <Button variant="primary">Go somewhere</Button>
+        </Card.Body>
+      </Card>
     </div>         
   );
 }
