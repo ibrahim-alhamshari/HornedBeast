@@ -14,7 +14,7 @@
 
 - Estimate of time needed to complete: 3 hours 
 
-- Start time: 2:00 pm 
-- Finish time: 5:21 pm
+- Start time: 1:40 pm 
+- Finish time: 1:21 am at the night
 
-- Actual time needed to complete: It need about 2 and half hour.
+- Actual time needed to complete: It need about 4 hour.
