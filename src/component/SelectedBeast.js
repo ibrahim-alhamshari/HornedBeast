@@ -12,6 +12,9 @@ class MyModal extends React.Component{
     super(props);
   }
     
+  // appearData=()=>{
+  
+  // }
 
   render(){
     return (
