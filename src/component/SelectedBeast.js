@@ -10,20 +10,31 @@ class MyModal extends React.Component{
 
   constructor(props){
     super(props);
+
+  
   }
-    
+
+  // appearData=()=>{
+  
+  // }
 
   render(){
     return (
       <div>
- 
+ console.lgo({this.props.title});
         <Modal show={this.props.show} onHide={this.props.close}>
           <Modal.Header closeButton>
-            <Modal.Title>{this.props.selectedBeast2.title}</Modal.Title>
+            <Modal.Title>{this.props.title}</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <img src={this.props.selectedBeast2.image_url} width='80%'/>
-            <p>{this.props.selectedBeast2.description}</p>
+          <Modal.Body><img src={this.props.image_url} width='80%'/>
+            {/* <p>{this.props.description}</p> */}
+            
+            {/* <ul>
+              {this.props.title.map(i => {
+                return <li>{i}</li>;
+              })}
+            </ul> */}
+
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.props.close}>
@@ -32,6 +43,8 @@ class MyModal extends React.Component{
           </Modal.Footer>
         </Modal>
       </div> 
+     
+
      
     ); }
 
