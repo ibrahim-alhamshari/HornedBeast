@@ -1,19 +1,22 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-lone-blocks */
 import React from 'react';
-import HornedBeasts from './HornedBeasts';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import HornedBeasts from './HornedBeasts';
+import SelectedBeast from './SelectedBeast';
 
 class Main extends React.Component {
 
   constructor(props) {
     super(props);
     this.state={
-      description04: '',
-      title04: '',
-      image_url04: '',
-      beasts04:'',
-      userPositon: ''
-    }
+      description04: [],
+      title04: [],
+      image_url04: [],
+      beasts04:[],
+      userPositon: [],
+    };
   }
   
 submitForm=(e)=>{
@@ -30,28 +33,47 @@ updatePosition =(e)=>{
 
 searchData =(value)=>{
   const compareHorns=[];
-  
-  this.props.HornsData.filter((item)=>{
+  this.props.HornsData.filter(item=>{
     if (value == item.horns){
       compareHorns.push(item);
     }
-  } )
- compareHorns.map((int) => {
-    console.log(int.title);
-    this.setState({
-      title04: int.title,
-      image_url04: int.image_url,
-      description04: int.description,
-      beasts04: int.horns,
+  } );
+
+  console.log(compareHorns);
+  {
+   
+    let titleArr = [];
+    let imageArr =[];
+    let descArr=[];
+    compareHorns.map((int) => {
+      return(
+        titleArr.push(int.title ),
+        imageArr.push(int.image_url),
+        descArr.push(int.description)
+      );
     });
-  
-}
- ),
+    this.setState({
+      title04:titleArr,
+      image_url04: imageArr,
+      description04: descArr,
+    });
+  }
+  return compareHorns;
 }
 
- render() {
+
+render() {
+  console.log(this.compareHorns);
+  console.log(this.state.title04);
   return (
+     
     <div>
+      <SelectedBeast 
+        title={this.state.title04}
+        image_url={this.state.image_url04}
+        description={this.state.description04}
+      />
+
       <Form onSubmit={(e) => this.submitForm}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <select onChange={this.updatePosition} aria-label="Default select example">
@@ -66,8 +88,27 @@ searchData =(value)=>{
          Submit
         </Button>
       </Form>
+      {
+        this.props.HornsData.map((element) => {
+          return (
+            <HornedBeasts
+              title={this.state.title04}
+              image_url={this.state.image_url04}
+              description={this.state.description04}
+              // response={this.props.response2}
+            />
+          );
+        })
+      }
     </div>
   );
-   }
-
+}
+}
 export default Main ;
+
+// this.setState({
+//   title04:int.title,
+//   image_url04: int.title,
+//   description04: int.description,
+//   beasts04: int.horns,
+// });
