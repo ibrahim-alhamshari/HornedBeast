@@ -44,9 +44,10 @@ class App extends React.Component {
           HornsData={Data}
         />
         <SelectedBeast 
-          // selectedBeast2={this.state.selectedBeast}
+          selectedBeast2={this.state.selectedBeast}
           show={this.state.showModal}
           close={this.exitingFromModal}
+          
         />
         <Footer />
       </div>

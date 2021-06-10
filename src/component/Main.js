@@ -11,6 +11,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state={
+      filteredData:this.props.HornsData,
       description04: [],
       title04: [],
       image_url04: [],
@@ -32,71 +33,56 @@ updatePosition =(e)=>{
 
 
 searchData =(value)=>{
+  console.log(value);
   const compareHorns=[];
-  this.props.HornsData.filter(item=>{
-    if (value == item.horns){
-      compareHorns.push(item);
-    }
-  } );
-
-  console.log(compareHorns);
-  {
+  if(value == 'All'){
+    this.setState({ filteredData: this.props.HornsData });
+  }else{
    
-    let titleArr = [];
-    let imageArr =[];
-    let descArr=[];
-    compareHorns.map((int) => {
-      return(
-        titleArr.push(int.title ),
-        imageArr.push(int.image_url),
-        descArr.push(int.description)
-      );
-    });
-    this.setState({
-      title04:titleArr,
-      image_url04: imageArr,
-      description04: descArr,
-    });
-  }
-  return compareHorns;
+    this.props.HornsData.filter(item=>{
+      if (value == item.horns){
+        compareHorns.push(item);
+      }
+    } );}
+  this.setState({
+    filteredData: compareHorns,
+  });
 }
 
 
 render() {
-  console.log(this.compareHorns);
-  console.log(this.state.title04);
   return (
      
     <div>
-      <SelectedBeast 
-        title={this.state.title04}
-        image_url={this.state.image_url04}
-        description={this.state.description04}
-      />
+
 
       <Form onSubmit={(e) => this.submitForm}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <select onChange={this.updatePosition} aria-label="Default select example">
-            <option>horns</option>
+          <Form.Control as="Select" onChange={this.updatePosition} aria-label="Default select example">
+            <option value="All">All</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
             <option value="100">One hundred</option>
-          </select>
+          </Form.Control>
         </Form.Group>
         <Button onClick={this.submitForm} variant="primary" type="submit">
          Submit
         </Button>
       </Form>
+
       {
-        this.props.HornsData.map((element) => {
+        this.state.filteredData.map((element) => {
           return (
-            <HornedBeasts
-              title={this.state.title04}
-              image_url={this.state.image_url04}
-              description={this.state.description04}
-              // response={this.props.response2}
-            />
+            <>
+
+              <HornedBeasts
+                title={element.title}
+                image_url={element.image_url}
+                description={element.description}
+                response={this.props.response2}
+              />
+            </>
           );
         })
       }
@@ -106,9 +92,28 @@ render() {
 }
 export default Main ;
 
-// this.setState({
-//   title04:int.title,
-//   image_url04: int.title,
-//   description04: int.description,
-//   beasts04: int.horns,
-// });
+// {
+   
+//   let titleArr = [];
+//   let imageArr =[];
+//   let descArr=[];
+//   compareHorns.map((int) => {
+//     return(
+//       titleArr.push(int.title ),
+//       imageArr.push(int.image_url),
+//       descArr.push(int.description)
+//     );
+//   });
+//   this.setState({
+//     title04:titleArr,
+//     image_url04: imageArr,
+//     description04: descArr,
+//   });
+// }
+// return compareHorns;
+
+{/* <SelectedBeast 
+title={element.title}
+image_url={element.image_url}
+description={element.description}
+/> */}
